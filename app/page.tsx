@@ -1,65 +1,220 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import logo from "./../public/logo.png";
 import Image from "next/image";
 
-export default function Home() {
+const navLinks = [
+  { name: "HOME", path: "/" },
+  { name: "PORTFOLIO", path: "/portfolio" },
+  { name: "ABOUT", path: "/about" },
+  { name: "SERVICES", path: "/services" },
+  // { name: "OUR CLIENTS", path: "/clients" },
+  { name: "CONTACT", path: "/contact" },
+];
+
+const socialLinks = [
+  { name: "FACEBOOK", url: "#" },
+  { name: "TWITTER", url: "#" },
+  // { name: "INSTAGRAM", url: "#" },
+  { name: "YOUTUBE", url: "#" },
+];
+
+// const slides = [
+//   {
+//     image:
+//       "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000",
+//     title: "Modern Luxury Spaces",
+//   },
+//   {
+//     image:
+//       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000",
+//     title: "Bespoke Architecture",
+//   },
+// ];
+
+const slides = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000",
+    title: "Modern Luxury Spaces",
+    description:
+      "Experience elegant interiors designed with comfort, sophistication, and functionality in mind. We create spaces that inspire modern living while reflecting your unique personality.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000",
+    title: "Bespoke Architecture",
+    description:
+      "From concept to completion, our architectural solutions combine innovation and craftsmanship to deliver timeless designs tailored to your lifestyle and vision.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000",
+    title: "Contemporary Living",
+    description:
+      "Discover beautifully curated living environments where aesthetics meet practicality, creating harmonious spaces for everyday life and memorable moments.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000",
+    title: "Elegant Interior Design",
+    description:
+      "Our interior design services blend premium materials, thoughtful layouts, and refined details to transform ordinary rooms into extraordinary experiences.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=2000",
+    title: "Dream Home Creations",
+    description:
+      "We bring your dream home to life with personalized designs, exceptional craftsmanship, and a commitment to creating spaces you'll love for years to come.",
+  },
+];
+
+const ZeroInchInteriors = () => {
+  const [current, setCurrent] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen bg-black text-white relative overflow-hidden font-sans">
+      {/* Background Slider */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.6 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${slides[current].image})` }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      </AnimatePresence>
+
+      {/* Navbar */}
+      <header className="absolute top-0 w-full z-50 flex items-center justify-between px-6 md:px-12 py-8">
+        <div className="flex items-center gap-0">
+          <div>
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src={logo}
+              alt="Imagine Interiors logo"
+              width={50}
+              height={50}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+          <div className="text-xs font-bold tracking-widest">
+            <span className="" style={{ fontSize: "15px" }}>
+              {" "}
+              IMAGINE
+            </span>
+            <br />
+            <span style={{ fontSize: "12px" }}> INTERIORS</span>
+          </div>
         </div>
+
+        <nav className="hidden lg:block">
+          <ul className="flex space-x-8 text-[10px] font-bold tracking-[0.2em]">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a href={link.path} className="hover:text-gray-400 transition">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <button
+          className="lg:hidden text-3xl"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          ☰
+        </button>
+      </header>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center space-y-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.path}
+              onClick={() => setIsMenuOpen(false)}
+              className="text-2xl font-bold"
+            >
+              {link.name}
+            </a>
+          ))}
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="mt-10 text-red-500"
+          >
+            CLOSE
+          </button>
+        </div>
+      )}
+
+      {/* Hero Content */}
+      <main className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center px-4">
+        <h1 className="text-5xl md:text-7xl font-thin mb-8 tracking-tighter">
+          {slides[current].title}
+        </h1>
+        <p className="font-thin w-full lg:w-3xl mb-8">
+          {slides[current]?.description}
+        </p>
+        <button className="border border-white py-4 px-10 text-[10px] font-bold tracking-[0.3em] hover:bg-white hover:text-black transition-all">
+          VIEW PROJECTS
+        </button>
       </main>
+
+      {/* Vertical Social Sidebar */}
+      <div className="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 z-30">
+        <ul className="flex flex-col gap-10">
+          {socialLinks.map((s) => (
+            <li key={s.name}>
+              <a
+                href={s.url}
+                className="text-[10px] font-bold tracking-[0.2em] hover:text-gray-400"
+                style={{
+                  writingMode: "vertical-rl",
+                  transform: "rotate(180deg)",
+                }}
+              >
+                {s.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Slider Controls */}
+      <div className="fixed bottom-10 right-10 z-30 flex items-center gap-4">
+        <button
+          onClick={() =>
+            setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1))
+          }
+          className="w-12 h-12 border border-white/30 hover:bg-white hover:text-black transition"
+        >
+          ←
+        </button>
+        <button
+          onClick={() =>
+            setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1))
+          }
+          className="w-12 h-12 border border-white/30 hover:bg-white hover:text-black transition"
+        >
+          →
+        </button>
+      </div>
     </div>
   );
-}
+};
+
+export default ZeroInchInteriors;
