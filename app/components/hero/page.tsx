@@ -69,6 +69,8 @@ const HeroPage = () => {
     return () => clearInterval(timer);
   }, []);
 
+  console.log("hello");
+
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden font-sans">
       {/* Background Slider */}
