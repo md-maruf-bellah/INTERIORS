@@ -1,13 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "./../../../public/logo.png";
 
 const NavbarPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // স্ক্রল ইভেন্ট লিসেনার
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "HOME", path: "/" },
@@ -26,9 +41,13 @@ const NavbarPage = () => {
 
   return (
     <div className="relative">
-      <header className="absolute top-0 w-full z-50 flex items-center justify-between px-6 md:px-10 py-4 text-white">
-        <div className="flex items-center gap-1">
-          <Image src={logo} alt="Logo" width={50} height={50} />
+      <header
+        className={`fixed top-0 w-full max-w-7xl mx-auto z-50 flex items-center justify-between px-6 md:px-10 py-2 text-white transition-all duration-300 ${
+          isScrolled ? "bg-black shadow-lg" : "bg-transparent"
+        }`}
+      >
+        <div className="flex items-center gap-0">
+          <Image src={logo} alt="Logo" width={53} height={53} />
           <div className="font-bold tracking-widest">
             <span className="block text-[16px]">IMAGINE</span>
             <span className="block text-[12px]">INTERIORS</span>
@@ -51,7 +70,6 @@ const NavbarPage = () => {
                       className="ml-1 group-hover:rotate-180 transition-transform duration-300"
                     />
 
-                    {/* এখানে 'pt-4' দিয়েছি যাতে মেইন মেনু এবং সাব-মেনুর মাঝে গ্যাপ না থাকে */}
                     <div className="absolute top-full left-0 pt-0 w-48 hidden group-hover:block">
                       <div className="bg-black/90 backdrop-blur-md p-4 shadow-lg border-t-1 border-gray-700">
                         {link.subLinks.map((sub) => (
@@ -81,16 +99,18 @@ const NavbarPage = () => {
 
         {/* Mobile Toggle Button */}
         <button
-          className="lg:hidden p-2 z-50"
+          className="lg:hidden p-2 z-50 cursor-pointer"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={35} /> : <Menu size={35} />}
         </button>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu ... (বাকি কোড একই থাকবে) */}
       <div
-        className={`fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center space-y-8 transition-all ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+        className={`fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center space-y-8 transition-all ${
+          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
       >
         {navLinks.map((link) => (
           <div key={link.name} className="text-center">
@@ -112,21 +132,6 @@ const NavbarPage = () => {
               >
                 {link.name}
               </a>
-            )}
-
-            {link.subLinks && isSubMenuOpen && (
-              <div className="mt-4 space-y-4">
-                {link.subLinks.map((sub) => (
-                  <a
-                    key={sub.name}
-                    href={sub.path}
-                    className="block text-lg text-gray-400 hover:text-white"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {sub.name}
-                  </a>
-                ))}
-              </div>
             )}
           </div>
         ))}

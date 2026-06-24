@@ -88,7 +88,7 @@ const HeroPage = () => {
       </main>
 
       {/* Vertical Social Sidebar */}
-      <div className="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 z-30">
+      <div className="hidden lg:flex absolute left-8 top-1/2 -translate-y-1/2 z-30">
         <ul className="flex flex-col gap-10">
           {socialLinks.map((s) => (
             <li key={s.name}>
@@ -108,7 +108,7 @@ const HeroPage = () => {
       </div>
 
       {/* Slider Controls */}
-      <div className="fixed bottom-10 right-10 z-30 flex items-center gap-4">
+      <div className="absolute bottom-10 right-10 z-30 flex items-center gap-4">
         <button
           onClick={() =>
             setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1))
