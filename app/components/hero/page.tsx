@@ -125,28 +125,6 @@ const HeroPage = () => {
         </button>
       </header> */}
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center space-y-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.path}
-              onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-bold"
-            >
-              {link.name}
-            </a>
-          ))}
-          <button
-            onClick={() => setIsMenuOpen(false)}
-            className="mt-10 text-red-500"
-          >
-            CLOSE
-          </button>
-        </div>
-      )}
-
       {/* Hero Content */}
       <main className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center px-4">
         <h1 className="text-5xl md:text-7xl font-thin mb-8 tracking-tighter">
