@@ -25,7 +25,7 @@
 // const ServicesSection = () => {
 //   return (
 //     <section className="py-20 px-6 bg-white ">
-//       <div className="max-w-6xl mx-auto text-center">
+//       <div className="max-w-7xl mx-auto text-center">
 //         {/* Header */}
 //         <p className="text-gray-500 font-bold tracking-[0.3em] text-sm mb-2 uppercase">
 //           Our Services
@@ -98,7 +98,7 @@ const services = [
 const ServicesSection = () => {
   return (
     <section className="py-20 px-6 bg-white ">
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto text-center">
         {/* Header */}
         <p className="text-gray-500 font-bold tracking-[0.3em] text-sm mb-2 uppercase">
           Our Services

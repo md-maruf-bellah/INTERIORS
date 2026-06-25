@@ -51,7 +51,7 @@ const ContactPage = () => {
 
   return (
     <section className="bg-white py-16 my-20 px-4 md:px-12">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
         {/* Left Side: Form */}
         <div className="flex-1">
           <h2 className="text-3xl text-gray-600 font-bold mb-2">

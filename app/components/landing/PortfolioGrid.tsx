@@ -104,7 +104,7 @@ const PortfolioGrid = () => {
 
   return (
     <section className="py-20 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-gray-900 tracking-wider text-center uppercase ">
             Our Works

@@ -46,17 +46,17 @@ const NavbarPage = () => {
   return (
     <div className="relative">
       <header
-        className={`fixed top-0 w-full max-w-7xl mx-auto z-50 flex items-center justify-between px-6 md:px-10 py-2 text-white transition-all duration-300 ${
+        className={`fixed top-0 w-full  mx-auto z-50 flex items-center justify-between px-6 md:px-10 py-2 text-white transition-all duration-300 ${
           isScrolled ? "bg-black shadow-lg" : "bg-transparent"
         }`}
       >
-        <div className="flex items-center gap-0">
+        <Link href={"/"} className="flex items-center gap-0">
           <Image src={logo} alt="Logo" width={53} height={53} />
           <div className="font-bold tracking-widest">
             <span className="block text-[16px]">IMAGINE</span>
             <span className="block text-[12px]">INTERIORS</span>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:block">

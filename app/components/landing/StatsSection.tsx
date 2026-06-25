@@ -20,7 +20,7 @@ const StatsSection = () => {
 
   return (
     <section ref={ref} className="bg-white pb-10 pt-25 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((stat, index) => (
           <div
             key={index}
