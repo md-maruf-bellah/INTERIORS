@@ -23,47 +23,75 @@ export default function PortfolioPage() {
   );
 
   return (
-    <section className="py-20 max-w-7xl mx-auto px-6 md:px-20 my-20 bg-white">
-      <h1 className="text-5xl font-light text-center mb-16 text-gray-500">
-        OUR PORTFOLIO
-      </h1>
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
-        {categories.map((cat) => (
+    <main className="bg-white">
+      {/* 1. Premium Hero Section */}
+      <section className="relative h-[60vh] w-full overflow-hidden mb-20">
+        <img
+          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000"
+          className="absolute inset-0 w-full h-full object-cover"
+          alt="Portfolio Hero"
+        />
+        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white">
+          <h3 className="tracking-[0.4em] uppercase text-sm font-light mb-4">
+            Crafting Excellence
+          </h3>
+          <h1 className="text-5xl md:text-7xl font-extralight">Our Work</h1>
+          <div className="w-20 h-[1px] bg-white mt-8"></div>
+        </div>
+      </section>
+
+      {/* 2. Portfolio Grid Section */}
+      <section className="py-10 max-w-7xl mx-auto px-6 md:px-20">
+        <div className="flex flex-wrap justify-center gap-6 mb-16">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setFilter(cat);
+                setVisibleCount(9);
+              }}
+              className={`px-8 py-3 text-xs font-bold uppercase transition-all duration-300 border ${
+                filter === cat
+                  ? "border-black text-black bg-gray-50"
+                  : "border-gray-200 text-gray-400 hover:border-black hover:text-black"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-10">
+          {filtered.slice(0, visibleCount).map((p) => (
+            <div
+              key={p.id}
+              onClick={() => router.push(`/portfolio/${p.id}`)}
+              className="cursor-pointer group"
+            >
+              <div className="overflow-hidden mb-4">
+                <img
+                  src={p.thumbnail}
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  alt={p.title}
+                />
+              </div>
+              <p className="text-amber-600 text-[10px] tracking-widest font-bold uppercase mb-1">
+                {p.category}
+              </p>
+              <h3 className="font-light text-xl text-gray-800">{p.title}</h3>
+            </div>
+          ))}
+        </div>
+
+        {visibleCount < filtered.length && (
           <button
-            key={cat}
-            onClick={() => {
-              setFilter(cat);
-              setVisibleCount(9);
-            }}
-            className={`px-6 py-2 border text-black ${filter === cat ? "text-gray-500" : "hover:border-black"}`}
+            onClick={() => setVisibleCount((v) => v + 9)}
+            className="block mx-auto mt-20 px-12 py-4 border border-black text-black hover:bg-black hover:text-white transition-all duration-300"
           >
-            {cat.toUpperCase()}
+            LOAD MORE
           </button>
-        ))}
-      </div>
-      <div className="grid md:grid-cols-3 gap-8 ">
-        {filtered.slice(0, visibleCount).map((p) => (
-          <div
-            key={p.id}
-            onClick={() => router.push(`/portfolio/${p.id}`)}
-            className="cursor-pointer group"
-          >
-            <img
-              src={p.thumbnail}
-              className="w-full h-72 object-cover group-hover:scale-105 transition duration-500"
-            />
-            <h3 className="mt-4 font-light text-lg text-gray-500">{p.title}</h3>
-          </div>
-        ))}
-      </div>
-      {visibleCount < filtered.length && (
-        <button
-          onClick={() => setVisibleCount((v) => v + 9)}
-          className="block mx-auto mt-12 px-10 py-3 border text-gray-500 border-black hover:bg-black hover:text-white"
-        >
-          LOAD MORE
-        </button>
-      )}
-    </section>
+        )}
+      </section>
+    </main>
   );
 }
