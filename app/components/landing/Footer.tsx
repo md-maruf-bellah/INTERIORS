@@ -7,7 +7,6 @@ import {
 } from "react-icons/fa";
 import { MapPin, Mail, Phone } from "lucide-react";
 
-// ডাটা অবজেক্ট (সহজে ম্যানেজ করার জন্য)
 const footerData = {
   links: [
     { name: "About", path: "#" },
@@ -67,7 +66,7 @@ const Footer = () => {
               <a
                 key={idx}
                 href={social.url}
-                className="p-3 border border-gray-700 rounded hover:bg-yellow-500 hover:border-yellow-500 text-gray-400 hover:text-black transition-all duration-300"
+                className="p-3 border border-gray-700 hover:bg-yellow-500 hover:border-yellow-500 text-gray-400 hover:text-black transition-all duration-300"
               >
                 <social.icon size={18} />
               </a>
@@ -82,7 +81,7 @@ const Footer = () => {
           </h4>
 
           {/* Map Section */}
-          <div className="w-full h-26 rounded overflow-hidden shadow-2xl border border-gray-800 hover:border-yellow-500 transition-colors">
+          <div className="w-full h-26  overflow-hidden shadow-2xl border border-gray-800 hover:border-yellow-500 transition-colors">
             <iframe
               // এখানে আপনার Google Maps থেকে পাওয়া সঠিক Embed link টি বসান
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902347900451!2d90.3957297753381!3d23.750849978670866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b88b0244793f%3A0x7d2b45155f67b5e8!2sSEL%20Rose%20N%20Dale!5e0!3m2!1sen!2sbd!4v1719230553120!5m2!1sen!2sbd"

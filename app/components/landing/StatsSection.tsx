@@ -28,14 +28,13 @@ const StatsSection = () => {
               index !== stats.length - 1 ? "md:border-r border-gray-200" : ""
             }`}
           >
-            <h3 className="text-4xl md:text-5xl font-light text-gray-400 mb-4">
-              [
+            <h3 className="text-4xl md:text-8xl font-bold text-gray-400 mb-4">
               {inView ? (
                 <CountUp start={0} end={stat.count} duration={2.5} />
               ) : (
                 "0"
               )}
-              +]
+              +
             </h3>
             <p className="text-sm font-bold tracking-[0.2em] text-black text-center">
               {stat.label}

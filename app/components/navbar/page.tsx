@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "./../../../public/logo.png";
+import Link from "next/link";
 
 const NavbarPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,13 +30,16 @@ const NavbarPage = () => {
     { name: "PORTFOLIO", path: "/portfolio" },
     {
       name: "ABOUT",
+      path: "/about",
+    },
+    {
+      name: "SERVICES",
       subLinks: [
-        { name: "OUR TEAM", path: "/about/our-team" },
-        { name: "OUR STORY", path: "/about/our-story" },
-        { name: "CAREER", path: "/about/career" },
+        { name: "INTERIOR DESIGN", path: "/service/our-team" },
+        { name: "EXTERIOR DESIGN", path: "/service/our-story" },
+        { name: "CUSTOM FURNITURE DESIGN", path: "/service/career" },
       ],
     },
-    { name: "SERVICES", path: "/services" },
     { name: "CONTACT", path: "/contact" },
   ];
 
@@ -70,27 +74,27 @@ const NavbarPage = () => {
                       className="ml-1 group-hover:rotate-180 transition-transform duration-300"
                     />
 
-                    <div className="absolute top-full left-0 pt-0 w-48 hidden group-hover:block">
+                    <div className="absolute top-full left-0 pt-0 w-68 hidden group-hover:block">
                       <div className="bg-black/90 backdrop-blur-md p-4 shadow-lg border-t-1 border-gray-700">
                         {link.subLinks.map((sub) => (
-                          <a
+                          <Link
                             key={sub.name}
                             href={sub.path}
                             className="block py-2 hover:text-gray-400 transition-colors"
                           >
                             {sub.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
                   </div>
                 ) : (
-                  <a
+                  <Link
                     href={link.path}
                     className="hover:text-gray-400 transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 )}
               </li>
             ))}

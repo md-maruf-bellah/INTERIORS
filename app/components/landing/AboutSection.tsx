@@ -54,7 +54,7 @@ const AboutSection = () => {
           {/* অন্ধকার ওভারলে যাতে টেক্সট সুন্দর দেখায় */}
           <div className="absolute inset-0 bg-white/1 backdrop-blur-sm overflow-hidden font-sans"></div>
 
-          <div className="relative z-10 w-full">
+          <div className="relative z-0 w-full">
             <h3 className="text-2xl font-bold mb-8 uppercase tracking-widest text-gray-100">
               The Imagine Interiors Advantage
             </h3>
