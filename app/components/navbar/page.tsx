@@ -111,31 +111,58 @@ const NavbarPage = () => {
       </header>
 
       {/* Mobile Menu ... (বাকি কোড একই থাকবে) */}
+      {/* Mobile Menu */}
       <div
         className={`fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center space-y-8 transition-all ${
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         {navLinks.map((link) => (
-          <div key={link.name} className="text-center">
+          <div
+            key={link.name}
+            className="text-center flex flex-col items-center"
+          >
             {link.subLinks ? (
-              <button
-                onClick={() => setIsSubMenuOpen(!isSubMenuOpen)}
-                className="text-2xl tracking-widest flex items-center hover:text-gray-400"
-              >
-                {link.name}
-                <ChevronDown
-                  className={`ml-2 transition-transform ${isSubMenuOpen ? "rotate-180" : ""}`}
-                />
-              </button>
+              <>
+                <button
+                  onClick={() => setIsSubMenuOpen(!isSubMenuOpen)}
+                  className="text-2xl tracking-widest flex items-center hover:text-gray-400"
+                >
+                  {link.name}
+                  <ChevronDown
+                    className={`ml-2 transition-transform ${isSubMenuOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                {/* এখানে সাব-মেনু রেন্ডারিং লজিক যোগ করা হয়েছে */}
+                <div
+                  className={`mt-4 space-y-2 overflow-hidden transition-all duration-300 ${
+                    isSubMenuOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  {link.subLinks.map((sub) => (
+                    <Link
+                      key={sub.name}
+                      href={sub.path}
+                      onClick={() => {
+                        setIsMenuOpen(false); // মেনু বন্ধ হবে
+                        setIsSubMenuOpen(false); // সাব-মেনু রিসেট হবে
+                      }}
+                      className="block text-lg text-gray-300 hover:text-white"
+                    >
+                      {sub.name}
+                    </Link>
+                  ))}
+                </div>
+              </>
             ) : (
-              <a
+              <Link
                 href={link.path}
                 onClick={() => setIsMenuOpen(false)}
                 className="text-2xl tracking-widest hover:text-gray-400"
               >
                 {link.name}
-              </a>
+              </Link>
             )}
           </div>
         ))}

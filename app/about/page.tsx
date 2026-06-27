@@ -14,7 +14,7 @@ const AboutSection = () => {
           <h3 className="tracking-[0.4em] uppercase text-sm font-light mb-4">
             Crafting Excellence
           </h3>
-          <h1 className="text-5xl md:text-7xl font-extralight">Our Work</h1>
+          <h1 className="text-5xl md:text-7xl font-extralight">About Page</h1>
           <div className="w-20 h-[1px] bg-white mt-8"></div>
         </div>
       </section>

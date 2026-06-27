@@ -28,7 +28,7 @@ const StatsSection = () => {
               index !== stats.length - 1 ? "md:border-r border-gray-200" : ""
             }`}
           >
-            <h3 className="text-4xl md:text-8xl font-bold text-gray-400 mb-4">
+            <h3 className="text-5xl md:text-8xl font-bold text-gray-400 mb-4">
               {inView ? (
                 <CountUp start={0} end={stat.count} duration={2.5} />
               ) : (
