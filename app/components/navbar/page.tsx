@@ -35,9 +35,9 @@ const NavbarPage = () => {
     {
       name: "SERVICES",
       subLinks: [
-        { name: "INTERIOR DESIGN", path: "/service/our-team" },
-        { name: "EXTERIOR DESIGN", path: "/service/our-story" },
-        { name: "CUSTOM FURNITURE DESIGN", path: "/service/career" },
+        { name: "INTERIOR DESIGN", path: "/services/interior" },
+        { name: "EXTERIOR DESIGN", path: "/services/exterior" },
+        { name: "CUSTOM FURNITURE DESIGN", path: "/services/custom-furniture" },
       ],
     },
     { name: "CONTACT", path: "/contact" },

@@ -5,13 +5,26 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as yup from "yup";
 
+const defaultValue = {
+  name: "",
+  phone: "",
+  email: "",
+  address: "",
+  description: "",
+  budget: [],
+};
+
 export const contactSchema = yup.object({
   name: yup.string().required("Name is required"),
   phone: yup.string().required("Phone is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
   address: yup.string().required("Address is required"),
   description: yup.string().required("Please describe your project"),
-  budget: yup.array().min(1, "Select at least one budget range").required(),
+  budget: yup
+    .array()
+    .typeError("Please select at least one budget range")
+    .min(1, "Please select at least one budget range")
+    .required("Please select at least one budget range"),
 });
 
 const budgetOptions = [
@@ -27,8 +40,10 @@ const ContactPage = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm({
     resolver: yupResolver(contactSchema),
+    defaultValues: defaultValue,
   });
 
   const onSubmit = async (data: {}) => {
@@ -38,11 +53,11 @@ const ContactPage = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+      reset();
 
       if (response.ok) {
+        reset();
         alert("Message sent successfully!");
-      } else {
-        alert("Something went wrong.");
       }
     } catch (error) {
       console.error(error);
@@ -82,7 +97,11 @@ const ContactPage = () => {
                   <input
                     {...register("name")}
                     placeholder="Your Name*"
-                    className="w-full border border-gray-400 text-gray-500 p-4 outline-none focus:border-black"
+                    className={`w-full border border-gray-400 text-gray-500 p-4 outline-none focus:border-black ${
+                      errors.name
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-400 focus:border-black"
+                    }`}
                   />
                   <p className="text-red-500 text-xs">{errors.name?.message}</p>
                 </div>
@@ -90,7 +109,11 @@ const ContactPage = () => {
                   <input
                     {...register("phone")}
                     placeholder="Your Phone Number*"
-                    className="w-full border border-gray-400 text-gray-500 p-4 outline-none focus:border-black"
+                    className={`w-full border border-gray-400 text-gray-500 p-4 outline-none focus:border-black ${
+                      errors.phone
+                        ? "border-red-500 focus:border-red-500"
+                        : "border-gray-400 focus:border-black"
+                    }`}
                   />
                   <p className="text-red-500 text-xs">
                     {errors.phone?.message}
@@ -101,7 +124,11 @@ const ContactPage = () => {
               <input
                 {...register("email")}
                 placeholder="Your Email Address*"
-                className="w-full border border-gray-400 text-gray-500 p-4 outline-none focus:border-black"
+                className={`w-full border border-gray-400 text-gray-500 p-4 outline-none focus:border-black ${
+                  errors.email
+                    ? "border-red-500 focus:border-red-500"
+                    : "border-gray-400 focus:border-black"
+                }`}
               />
               <p className="text-red-500 text-xs">{errors.email?.message}</p>
 
@@ -109,7 +136,11 @@ const ContactPage = () => {
                 {...register("address")}
                 placeholder="Your Address*"
                 rows={3}
-                className="w-full border border-gray-400 text-gray-500 p-4 outline-none focus:border-black"
+                className={`w-full border border-gray-400 text-gray-500 p-4 outline-none focus:border-black ${
+                  errors.address
+                    ? "border-red-500 focus:border-red-500"
+                    : "border-gray-400 focus:border-black"
+                }`}
               />
               <p className="text-red-500 text-xs">{errors.address?.message}</p>
 
@@ -117,7 +148,11 @@ const ContactPage = () => {
                 {...register("description")}
                 placeholder="Please Briefly Describe Your Project*"
                 rows={4}
-                className="w-full border border-gray-400 text-gray-500 p-4 outline-none focus:border-black"
+                className={`w-full border border-gray-400 text-gray-500 p-4 outline-none focus:border-black ${
+                  errors.name
+                    ? "border-red-500 focus:border-red-500"
+                    : "border-gray-400 focus:border-black"
+                }`}
               />
               <p className="text-red-500 text-xs">
                 {errors.description?.message}

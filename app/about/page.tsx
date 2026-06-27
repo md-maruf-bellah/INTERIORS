@@ -20,7 +20,7 @@ const AboutSection = () => {
       </section>
       <section className="bg-white   px-6 md:px-20 lg:px-32">
         {/* Header Section */}
-        <div className="grid md:grid-cols-2 gap-16 mb-24 items-end">
+        <div className="grid md:grid-cols-2 gap-16 mb-24 pt-10 items-end">
           <div>
             <h3 className="text-amber-600 tracking-[0.3em] text-xs font-bold mb-4 uppercase">
               Imagine Interiors
