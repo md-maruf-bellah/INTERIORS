@@ -62,46 +62,63 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 my-20 px-6 lg:px-20 max-w-7xl mx-auto space-y-24 bg-white">
-      {services.map((service, index) => (
-        <div
-          key={index}
-          className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 !== 0 ? "md:flex-row-reverse" : ""}`}
-        >
-          {/* Image Side - শুধুমাত্র হোম ইন্টারিয়রের জন্য বামে, অন্যদের জন্য ডানে দেখানোর লজিক */}
-          <div
-            className={`overflow-hidden  shadow-lg ${index % 2 !== 0 ? "md:order-2" : ""}`}
-          >
-            <img
-              src={service.image}
-              alt={service.alt}
-              className="w-full h-[500px] object-cover hover:scale-105 transition duration-700"
-            />
-          </div>
-
-          {/* Text Side */}
-          <div className="space-y-6">
-            <h2 className="text-3xl font-light text-gray-900 border-b border-gray-200 pb-4">
-              {service.title}
-            </h2>
-            <p className="text-gray-600">{service.description}</p>
-            <ul className="space-y-2">
-              {service.points.map((point, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-2 text-sm text-gray-700"
-                >
-                  <span className="text-amber-600 mt-1">●</span> {point}
-                </li>
-              ))}
-            </ul>
-            <button className="px-8 py-3 bg-amber-600 text-white font-bold hover:bg-black transition-all duration-300">
-              LET'S GET STARTED
-            </button>
-          </div>
+    <div className="bg-white">
+      {/* 1. Premium Hero Section */}
+      <section className="relative h-[60vh] w-full overflow-hidden mb-20">
+        <img
+          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000"
+          className="absolute inset-0 w-full h-full object-cover"
+          alt="Portfolio Hero"
+        />
+        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white">
+          <h3 className="tracking-[0.4em] uppercase text-sm font-light mb-4">
+            Crafting Excellence
+          </h3>
+          <h1 className="text-5xl md:text-7xl font-extralight">Our Work</h1>
+          <div className="w-20 h-[1px] bg-white mt-8"></div>
         </div>
-      ))}
-    </section>
+      </section>
+      <section className="py-20 px-6 lg:px-10">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 !== 0 ? "md:flex-row-reverse" : ""}`}
+          >
+            {/* Image Side - শুধুমাত্র হোম ইন্টারিয়রের জন্য বামে, অন্যদের জন্য ডানে দেখানোর লজিক */}
+            <div
+              className={`overflow-hidden  shadow-lg ${index % 2 !== 0 ? "md:order-2" : ""}`}
+            >
+              <img
+                src={service.image}
+                alt={service.alt}
+                className="w-full h-[500px] object-cover hover:scale-105 transition duration-700"
+              />
+            </div>
+
+            {/* Text Side */}
+            <div className="space-y-6">
+              <h2 className="text-3xl font-light text-gray-900 border-b border-gray-200 pb-4">
+                {service.title}
+              </h2>
+              <p className="text-gray-600">{service.description}</p>
+              <ul className="space-y-2">
+                {service.points.map((point, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-2 text-sm text-gray-700"
+                  >
+                    <span className="text-amber-600 mt-1">●</span> {point}
+                  </li>
+                ))}
+              </ul>
+              <button className="px-8 py-3 bg-amber-600 text-white font-bold hover:bg-black transition-all duration-300">
+                LET'S GET STARTED
+              </button>
+            </div>
+          </div>
+        ))}
+      </section>
+    </div>
   );
 };
 
