@@ -50,10 +50,10 @@ const DesignServices = () => {
       <div className="max-w-7xl mx-auto">
         {/* হেডার */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 tracking-wider">
+          <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-8 uppercase">
             OUR DESIGN SERVICES
           </h2>
-          <div className="w-24 h-1 bg-yellow-500 mx-auto mt-4"></div>
+          <div className="w-40 h-1 bg-yellow-500 mx-auto mt-4"></div>
         </div>
 
         {/* সার্ভিস গ্রিড */}

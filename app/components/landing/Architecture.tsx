@@ -106,7 +106,7 @@ const ServicesSection = () => {
         <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-8 uppercase">
           What Can We Offer
         </h2>
-        <div className="w-20 h-[2px] bg-gray-300 mx-auto mb-16"></div>
+        <div className="w-40 h-1 bg-yellow-500 mx-auto mb-16"></div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavbarPage from "./components/navbar/page";
 import Footer from "./components/landing/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import { TopScroller } from "./components/TopScroller";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,11 +32,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col max-w-full mx-auto">
-        <div>
+      <body>
+        <div className="min-h-full flex flex-col max-w-full mx-auto">
+          <TopScroller />
           <NavbarPage />
           {children}
-
+          <ScrollToTop />
           <Footer />
         </div>
       </body>
