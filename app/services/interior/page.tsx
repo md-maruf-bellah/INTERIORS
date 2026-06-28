@@ -66,7 +66,7 @@ const ServicesSection = () => {
       {/* 1. Premium Hero Section */}
       <section className="relative h-[60vh] w-full overflow-hidden mb-20">
         <img
-          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000"
+          src="https://media.istockphoto.com/id/1293762741/photo/modern-living-room-interior-3d-render.jpg?s=612x612&w=0&k=20&c=iZ561ZIXOtPYGSzqlKUnLrliorreOYVz1pzu8WJmrnc="
           className="absolute inset-0 w-full h-full object-cover"
           alt="Portfolio Hero"
         />

@@ -54,9 +54,15 @@ const TestimonialSlider = () => {
   };
 
   const variants = {
-    enter: (direction) => ({ x: direction > 0 ? 500 : -500, opacity: 0 }),
+    enter: (direction: number) => ({
+      x: direction > 0 ? 500 : -500,
+      opacity: 0,
+    }),
     center: { x: 0, opacity: 1 },
-    exit: (direction) => ({ x: direction > 0 ? -500 : 500, opacity: 0 }),
+    exit: (direction: number) => ({
+      x: direction > 0 ? -500 : 500,
+      opacity: 0,
+    }),
   };
 
   return (
@@ -115,13 +121,13 @@ const TestimonialSlider = () => {
         <div className="flex justify-center md:justify-end items-center gap-4 mt-6">
           <button
             onClick={prev}
-            className="w-12 h-12 flex items-center justify-center border border-gray-300 hover:bg-black hover:text-white transition"
+            className="w-12 h-12 flex items-center justify-center border border-gray-300 hover:bg-black hover:text-white transition text-gray-700"
           >
             ←
           </button>
           <button
             onClick={next}
-            className="w-12 h-12 flex items-center justify-center border border-gray-300 hover:bg-black hover:text-white transition"
+            className="w-12 h-12 flex items-center justify-center border border-gray-300 hover:bg-black hover:text-white transition text-gray-700"
           >
             →
           </button>
