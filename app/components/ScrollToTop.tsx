@@ -35,13 +35,13 @@ const ScrollToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-4 bg-black text-white  shadow-lg hover:bg-gray-800 transition-colors"
+          className="fixed bottom-8 right-8 z-50 p-4 bg-black text-white  shadow-lg hover:bg-gray-800 transition-colors cursor-pointer"
           whileHover={{ y: -5 }}
           whileTap={{ scale: 0.9 }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 cursor-pointer"
+            className="h-5 w-5 "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
