@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const socialLinks = [
   { name: "FACEBOOK", url: "#" },
@@ -82,9 +83,12 @@ const HeroPage = () => {
         <p className="font-thin w-full lg:w-3xl mb-8">
           {slides[current]?.description}
         </p>
-        <button className="border border-white py-4 px-10 text-[10px] font-bold tracking-[0.3em] hover:bg-white hover:text-black transition-all cursor-pointer">
+        <Link
+          href={"/portfolio"}
+          className="border border-white py-4 px-10 text-[10px] font-bold tracking-[0.3em] hover:bg-white hover:text-black transition-all cursor-pointer"
+        >
           VIEW PROJECTS
-        </button>
+        </Link>
       </main>
 
       {/* Vertical Social Sidebar */}
