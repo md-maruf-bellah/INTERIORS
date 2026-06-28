@@ -12,6 +12,8 @@ export default function PortfolioPage() {
     "Office Interior",
     "Home Interior",
     "Restaurant Interior",
+    "Office Interiors",
+    "Restaurant Interiors",
   ];
 
   const filtered = useMemo(
@@ -42,7 +44,7 @@ export default function PortfolioPage() {
 
       {/* 2. Portfolio Grid Section */}
       <section className="py-10 max-w-7xl mx-auto px-6 md:px-20">
-        <div className="flex flex-wrap justify-center gap-6 mb-16">
+        <div className="w-full flex overflow-x-auto gap-4 mb-16 pb-4 px-4 scrollbar-hide justify-start md:justify-center">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -50,7 +52,7 @@ export default function PortfolioPage() {
                 setFilter(cat);
                 setVisibleCount(9);
               }}
-              className={`px-8 py-3 text-xs font-bold uppercase transition-all duration-300 border ${
+              className={`px-6 py-3 text-xs font-bold uppercase transition-all duration-300 border whitespace-nowrap cursor-pointer ${
                 filter === cat
                   ? "border-black text-black bg-gray-50"
                   : "border-gray-200 text-gray-400 hover:border-black hover:text-black"
