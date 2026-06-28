@@ -29,7 +29,7 @@ const footerData = {
 const Footer = () => {
   return (
     <footer className="bg-black text-gray-300 pt-20 pb-10 px-6 border-t-4 border-yellow-500">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="max-w-[1700px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Quick Links Column */}
         <div>
           <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-lg">

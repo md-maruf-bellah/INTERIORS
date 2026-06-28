@@ -20,7 +20,7 @@ const advantages = [
 const AboutSection = () => {
   return (
     <section className="py-20 px-6 lg:px-10 bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-[1700px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left Side: Text Content */}
         <div className="space-y-6">
           <h2 className="text-4xl font-light text-gray-900 uppercase tracking-[0.1em]">

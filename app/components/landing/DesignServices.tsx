@@ -47,7 +47,7 @@ const services = [
 const DesignServices = () => {
   return (
     <section className="py-20 bg-white px-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1700px] mx-auto">
         {/* হেডার */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-8 uppercase">

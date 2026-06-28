@@ -22,7 +22,7 @@ const features = [
 const FeaturesSection = () => {
   return (
     <section className="py-20 px-6 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1700px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
@@ -77,7 +77,7 @@ export default FeaturesSection;
 // const FeaturesSection = () => {
 //   return (
 //     <section className="py-20 px-6 bg-gray-50">
-//       <div className="max-w-7xl mx-auto">
+//       <div className="max-w-[1700px] mx-auto">
 //         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 //           {features.map((feature, index) => (
 //             <div

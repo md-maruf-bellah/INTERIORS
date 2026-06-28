@@ -67,7 +67,7 @@ const TestimonialSlider = () => {
 
   return (
     <section className="py-20 px-6 bg-gray-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1700px] mx-auto">
         <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-16 text-center uppercase tracking-widest">
           500+ Happy Customers
         </h2>

@@ -35,7 +35,7 @@ export default function ProjectDetail({
     Modal.setAppElement("body");
   }, []);
   return (
-    <div className="max-w-7xl mx-auto py-20 my-20 px-6 md:px-20 bg-white">
+    <div className="max-w-[1700px] mx-auto py-20 my-20 px-6 md:px-20 bg-white">
       <button
         onClick={() => window.history.back()}
         className="mb-8 text-sm uppercase underline text-gray-500"

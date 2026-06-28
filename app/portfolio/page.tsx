@@ -43,7 +43,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* 2. Portfolio Grid Section */}
-      <section className="py-10 max-w-7xl mx-auto px-6 md:px-20">
+      <section className="py-10 max-w-[1700px] mx-auto px-6 md:px-20">
         <div className="w-full flex overflow-x-auto gap-4 mb-16 pb-4 px-4 scrollbar-hide justify-start md:justify-center">
           {categories.map((cat) => (
             <button

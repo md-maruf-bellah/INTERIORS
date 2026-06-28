@@ -19,7 +19,7 @@ const CustomFurniture = () => {
         </div>
       </section>
       <section className="py-10 ">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1700px] mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-16 items-center">
           {/* Left: Image Side with a clean frame */}
           <div className="relative">
             <div className="absolute -top-6 -left-6 w-24 h-24 border-t-2 border-l-2 border-amber-600"></div>

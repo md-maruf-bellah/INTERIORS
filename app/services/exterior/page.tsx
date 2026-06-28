@@ -22,7 +22,7 @@ const ExteriorSection = () => {
       </section>
 
       <section className="py-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="max-w-[1700px] mx-auto px-6 lg:px-10">
           {/* Section Header */}
           <div className="mb-20 text-center">
             <h3 className="text-amber-600 tracking-[0.3em] text-xs font-bold uppercase mb-4">

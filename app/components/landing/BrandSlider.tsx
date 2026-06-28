@@ -26,7 +26,7 @@ const BrandSlider = () => {
 
   return (
     <section className="py-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto text-center mb-16">
+      <div className="max-w-[1700px] mx-auto text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-thin text-black uppercase">
           Trusted by the Best Brands
         </h2>
